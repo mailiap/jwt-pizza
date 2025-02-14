@@ -34,7 +34,9 @@ test('register', async ({ page }) => {
   await page.getByRole('link', { name: 'Register' }).click();
   await expect(page.getByRole('heading')).toContainText('Welcome to the party');
   await page.getByRole('textbox', { name: 'Full name' }).fill('MaiLia P');
+  await page.getByRole('textbox', { name: 'Full name' }).press('Tab');
   await page.getByRole('textbox', { name: 'Email address' }).fill('mailiap@gmail.com');
+  await page.getByRole('textbox', { name: 'Email address' }).press('Tab');
   await page.getByRole('textbox', { name: 'Password' }).fill('password123');
   await expect(page.getByRole('textbox', { name: 'Full name' })).toHaveValue('MaiLia P');
   await page.getByRole('textbox', { name: 'Email address' }).click();
@@ -187,6 +189,7 @@ test('franchise dashboard / create store', async ({ page }) => {
     await page.getByRole('textbox', { name: 'Email address' }).fill('mailiap@gmail.com');
     await page.getByRole('textbox', { name: 'Password' }).fill('password123');
     await expect(page.getByRole('textbox', { name: 'Email address' })).toHaveValue('mailiap@gmail.com');
+    await page.getByRole('textbox', { name: 'Email address' }).press('Tab');
     await expect(page.getByRole('textbox', { name: 'Password' })).toHaveValue('password123');
     await page.getByRole('button', { name: 'Login' }).click();
     await expect(page.getByRole('heading')).toContainText('The web\'s best pizza');
