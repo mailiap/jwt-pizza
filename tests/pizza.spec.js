@@ -130,6 +130,8 @@ test('purchase with login', async ({ page }) => {
   await expect(page.locator('tbody')).toContainText('Pepperoni');
   await expect(page.locator('tfoot')).toContainText('2 pies10 ₿');
   await page.getByRole('button', { name: 'Pay now' }).click();
+  await expect(page.getByText('2 pies10')).toBeVisible();
+
 });
 
 
@@ -248,7 +250,8 @@ test('admin dashboard, create/remove store', async ({ page }) => {
   
   await page.goto('http://localhost:5173/');
   await page.getByRole('link', { name: 'Login' }).click();
-  await page.getByRole('textbox', { name: 'Email address' }).fill('mailiap@gmail.com');
+  await page.getByRole('textbox', { name: 'Email address' }).fill('mailiap@gmail.com');  
+  await page.getByRole('textbox', { name: 'Email address' }).press('Tab');
   await page.getByRole('textbox', { name: 'Password' }).fill('password123');
   await expect(page.getByRole('heading')).toContainText('Welcome back');
   await expect(page.getByRole('textbox', { name: 'Email address' })).toHaveValue('mailiap@gmail.com');
@@ -260,6 +263,7 @@ test('admin dashboard, create/remove store', async ({ page }) => {
   await page.getByRole('button', { name: 'Add Franchise' }).click();
   await page.getByRole('textbox', { name: 'franchise name' }).click();
   await page.getByRole('textbox', { name: 'franchise name' }).fill('MyPizza');
+  await page.getByRole('textbox', { name: 'franchise name' }).press('Tab');
   await page.getByRole('textbox', { name: 'franchisee admin email' }).fill('mailiap@gmail.com');
   await expect(page.getByRole('heading')).toContainText('Create franchise');
   await expect(page.getByRole('textbox', { name: 'franchise name' })).toHaveValue('MyPizza');
