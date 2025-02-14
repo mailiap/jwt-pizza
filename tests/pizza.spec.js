@@ -131,14 +131,14 @@ test('purchase with login', async ({ page }) => {
 });
 
 
-test('about page', async ({ page }) => {
+test('about page and history pages', async ({ page }) => {
   await page.goto('http://localhost:5173/');
   await page.getByRole('link', { name: 'About' }).click();
   await expect(page.getByRole('main')).toContainText('The secret sauce');
   await expect(page.getByRole('main')).toContainText('Our talented employees at JWT Pizza are true artisans. They pour their heart and soul into every pizza they create, striving for perfection in every aspect. From hand-stretching the dough to carefully layering the toppings, they take pride in their work and are constantly seeking ways to elevate the pizza-making process. Their creativity and expertise shine through in every slice, resulting in a pizza that is not only delicious but also a work of art. We are grateful for our dedicated team and their unwavering commitment to delivering the most flavorful and satisfying pizzas to our valued customers.');
-  // await page.getByRole('link', { name: 'History' }).click();
-  // await expect(page.getByRole('heading')).toContainText('Mama Rucci, my my');
-  // await expect(page.getByRole('main')).toContainText('However, it was the Romans who truly popularized pizza-like dishes. They would top their flatbreads with various ingredients such as cheese, honey, and bay leaves.');
+  await page.getByRole('link', { name: 'History' }).click();
+  await expect(page.getByRole('heading')).toContainText('Mama Rucci, my my');
+  await expect(page.getByRole('main')).toContainText('However, it was the Romans who truly popularized pizza-like dishes. They would top their flatbreads with various ingredients such as cheese, honey, and bay leaves.');
 });
 
 test('franchise dashboard / create store', async ({ page }) => {
