@@ -53,8 +53,8 @@ test('register', async ({ page }) => {
 test('purchase with login', async ({ page }) => {
   await page.route('*/**/api/order/menu', async (route) => {
     const menuRes = [
-      { id: 1, title: 'Veggie', image: 'pizza1.png', price: 5.00, description: 'A garden of delight' },
-      { id: 2, title: 'Pepperoni', image: 'pizza2.png', price: 5.00, description: 'Spicy treat' },
+      { id: 1, title: 'Veggie', image: 'pizza1.png', price: 0.0038, description: 'A garden of delight' },
+      { id: 2, title: 'Pepperoni', image: 'pizza2.png', price: 0.0042, description: 'Spicy treat' },
     ];
     expect(route.request().method()).toBe('GET');
     await route.fulfill({ json: menuRes });
@@ -64,15 +64,15 @@ test('purchase with login', async ({ page }) => {
     const franchiseRes = [
       {
         id: 2,
-        name: 'PizzaParty',
+        name: 'LotaPizza',
         stores: [
-          { id: 4, name: 'Spanish Fork' },
-          { id: 5, name: 'Salem' },
-          { id: 6, name: 'Provo' },
+          { id: 4, name: 'Lehi' },
+          { id: 5, name: 'Springville' },
+          { id: 6, name: 'American Fork' },
         ],
       },
-      { id: 3, name: 'PizzaPalooza', stores: [{ id: 7, name: 'Highland' }] },
-      { id: 4, name: 'BestSlice', stores: [] },
+      { id: 3, name: 'PizzaCorp', stores: [{ id: 7, name: 'Spanish Fork' }] },
+      { id: 4, name: 'topSpot', stores: [] },
     ];
     expect(route.request().method()).toBe('GET');
     await route.fulfill({ json: franchiseRes });
@@ -89,8 +89,8 @@ test('purchase with login', async ({ page }) => {
   await page.route('*/**/api/order', async (route) => {
     const orderReq = {
       items: [
-        { menuId: 1, description: 'Veggie', price: 5.00 },
-        { menuId: 2, description: 'Pepperoni', price: 5.00 },
+        { menuId: 1, description: 'Veggie', price: 0.0038 },
+        { menuId: 2, description: 'Pepperoni', price: 0.0042 },
       ],
       storeId: '4',
       franchiseId: 2,
@@ -98,8 +98,8 @@ test('purchase with login', async ({ page }) => {
     const orderRes = {
       order: {
         items: [
-          { menuId: 1, description: 'Veggie', price: 5.00 },
-          { menuId: 2, description: 'Pepperoni', price: 5.00 },
+          { menuId: 1, description: 'Veggie', price: 0.0038 },
+          { menuId: 2, description: 'Pepperoni', price: 0.0042 },
         ],
         storeId: '4',
         franchiseId: 2,
@@ -128,8 +128,9 @@ test('purchase with login', async ({ page }) => {
   await expect(page.getByRole('main')).toContainText('Send me those 2 pizzas right now!');
   await expect(page.locator('tbody')).toContainText('Veggie');
   await expect(page.locator('tbody')).toContainText('Pepperoni');
-  await expect(page.locator('tfoot')).toContainText('2 pies10 ₿');
+  await expect(page.locator('tfoot')).toContainText('0.008 ₿');
   await page.getByRole('button', { name: 'Pay now' }).click();
+  await expect(page.getByText('0.008')).toBeVisible();
 });
 
 
