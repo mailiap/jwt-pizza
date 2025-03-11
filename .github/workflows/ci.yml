@@ -78,7 +78,7 @@ jobs:
         run: |
           aws s3 cp dist s3://pizza.mailiap.click/$version --recursive
 
-      - name: Update the cloudfront distribution
+      - name: Update staging version
         run: |
           # Get the current distribution and update it to use the new version
           aws cloudfront get-distribution-config --id ${{ secrets.DISTRIBUTION_ID }} > original.json
