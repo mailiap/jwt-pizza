@@ -92,4 +92,4 @@ jobs:
 
             ${{ github.event.head_commit.message }}
 
-            **commit**: ${{ github.sha }}
+            **commit**: ${{ github.sha }} 
