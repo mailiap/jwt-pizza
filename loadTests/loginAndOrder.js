@@ -30,7 +30,6 @@ export function scenario_1() {
 
   response = http.put(
     'https://pizza.mailiap.click/api/auth',
-    '{"email":"mailiap@byu.edu","password":"admin"}',
     {
       headers: {
         accept: '*/*',
