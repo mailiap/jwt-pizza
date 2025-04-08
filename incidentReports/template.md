@@ -1,4 +1,4 @@
-# Incident: YYYY-MM-DD HH-mm-ss
+# Incident: 2025-04-08 2:31:30 MT
 
 ## Summary
 
