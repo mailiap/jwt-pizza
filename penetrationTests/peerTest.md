@@ -58,7 +58,7 @@
 | Classification | Authentication Bypass                                                          |
 | Severity       | 3                                                                              |
 | Description    | Used jwt.io to forge a JWT with an "admin" role and signed it using a random secret. The forged token was accepted by the app, allowing full access to admin-only endpoints.   |
-| Images         | ![MaiLia Attacks Caleb](./images/mailia-attack-caleb.png) <br/> Screenshot showing access to admin route using the forged token.|
+| Images         | ![MaiLia Attacks Caleb](./images/mailia-attacks-caleb.png) <br/> Screenshot showing access to admin route using the forged token.|
 | Corrections    | Peer must implement proper JWT verification using the correct secret key and a secure algorithm                                                          |
 
 ## Summary of Learnings
