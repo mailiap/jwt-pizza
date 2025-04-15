@@ -63,5 +63,5 @@
 
 ## Summary of Learnings
 
-- JWT signature verification is crucial
+- JWT verification is crucial
 - Sanitize database inputs
