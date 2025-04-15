@@ -43,3 +43,11 @@ public boolean isPositive(int number) {
 }
 ```
 
+## Connection to My Work:
+
+As someone who wants to have a deeper understanding of quality assurance, mutation testing shifted the way I think about test coverage. It makes me realize that even well written tests can be fragile if they don't challenge the logic with edge cases or unexpected inputs. In future projects I hopw to use mutation testing together with unit testing to improve my tests.
+
+## Takeaway:
+
+Mutation testing doesn't just test your code but it also tests your tests.
+It’s a resource tool that challenges already good tested code and it helps developers think more like adversaries to their own code.
