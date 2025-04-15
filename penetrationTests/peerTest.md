@@ -53,12 +53,12 @@
 
 | Item           | Result                                                                         |
 | -------------- | ------------------------------------------------------------------------------ |
-| Date           | June 18, 2053                                                                  |
-| Target         | pizza.byucsstudent.click                                                       |
-| Classification | Injection                                                                      |
-| Severity       | 1                                                                              |
-| Description    | SQL injection deleted database. All application data destroyed.                |
-| Images         | ![Dead database](deadDatabase.png) <br/> Stores and menu no longer accessible.|
-| Corrections    | Sanitize user inputs.                                                          |
+| Date           | April 15, 2025                                                                 |
+| Target         | pizza.calebc48.click                                                           |
+| Classification | Authentication Bypass                                                          |
+| Severity       | 3                                                                              |
+| Description    | Used jwt.io to forge a JWT with an "admin" role and signed it using a random secret. The forged token was accepted by the app, allowing full access to admin-only endpoints.   |
+| Images         | ![MaiLia Attacks Caleb](./images/mailia-attack-caleb.png) <br/> Screenshot showing access to admin route using the forged token.|
+| Corrections    | Peer must implement proper JWT verification using the correct secret key and a secure algorithm                                                          |
 
 ## Summary of Learnings
