@@ -62,3 +62,6 @@
 | Corrections    | Peer must implement proper JWT verification using the correct secret key and a secure algorithm                                                          |
 
 ## Summary of Learnings
+
+- JWT signature verification is crucial
+- Sanitize database inputs
