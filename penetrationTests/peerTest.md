@@ -29,7 +29,7 @@
 | Classification | Authentication Bypass                                                                      |
 | Severity       | 2                                                                              |
 | Description    | Forged a JWT using jwt.io by modifying the payload and signing with a fake secret. Attempted to access an admin-only route using the forged token. The app did not verify the signature correctly and allowed access.               |
-| Images         | ![Dead database](deadDatabase.png) <br/> Stores and menu no longer accessible. |
+| Images         | ![MaiLia Self Attack](./images/mailia-self-attack.png) <br/> Screenshot showing successful access to admin-dashboard with a fake token. |
 | Corrections    | Ensure JWT signatures are verified with the correct secret key. Reject unsigned or incorrectly signed tokens. Use a secure signing algorithm like RS256 if possible.
 ## Peer Attacks
 
